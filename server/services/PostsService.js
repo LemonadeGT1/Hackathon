@@ -1,10 +1,11 @@
 import { dbContext } from "../db/DbContext.js"
-import { BadRequest } from "../utils/Errors.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 
 
 
 class PostsService {
+    
     
     async getPosts(query) {
         const posts = await dbContext.Posts.find(query).populate('author', 'name picture').populate('userCount')
@@ -24,6 +25,13 @@ class PostsService {
         return newPost
     }
 
+    async deletePost(userId, postId) {
+        const foundPost = await this.getPostById(postId)
+        if (foundPost.authorId !=userId) {
+            throw new Forbidden("You're not able to delete this post")
+        }
+        await foundPost.remove()
+    }
 }
 
 export const postsService = new PostsService()
