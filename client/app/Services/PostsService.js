@@ -10,6 +10,7 @@ class PostsService {
   }
   async getPosts() {
     const res = await server.get('api/posts')
+    console.log('PostsService getPosts', res)
     appState.posts = res.data.map(p => new Post(p))
   }
 

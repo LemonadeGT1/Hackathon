@@ -5,12 +5,18 @@ import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 
 function _drawTopics() {
-
+  console.log('_drawTopics')
+  let topics = appState.topics
+  let template = ''
+  topics.forEach(topic => template += topic.dropdownTemplate)
+  setHTML('active-topic', template)
 }
 
 export class TopicsController {
   constructor() {
-
+    console.log('TopicsController')
+    appState.on('topics', _drawTopics)
+    this.getTopics()
   }
 
   async getTopics() {

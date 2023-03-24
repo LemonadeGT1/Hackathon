@@ -4,6 +4,9 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 
 class CommentsService {
+  getCommentById(commentId) {
+    throw new Error("Method not implemented.")
+  }
   async getComments(query) {
     const comments = await dbContext.Comments.find(query)
     return comments
