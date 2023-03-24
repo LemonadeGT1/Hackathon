@@ -66,7 +66,7 @@
   <main class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-12 d-flex justify-content-between">
-        <div class="">
+        <div class="" id="active-topic">
           <h1>Dead Parents</h1>
           <p class="ms-5">Can you be a superhero with alive parents</p>
         </div>
@@ -144,8 +144,51 @@
         </div> -->
       </section>
 
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">[Post title here]</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="container-fluid">
+            <section class="row" id="favorites">
+              <div class="col-12">
+                <img class="img-fluid"
+                  src="https://comicvine.gamespot.com/a/uploads/original/0/40/1685100-batman_secret_files_01_page011_c.jpg"
+                  alt="">
+                <div class="d-flex justify-content-between align-items-baseline p-1">
+                  <button class="btn btn-danger" onclick="app.postsController.deletePost('postid')">Delete Post<i
+                      class="mdi mdi-delete"></i></button>
+                  <p>2023-03-14</p>
+                </div>
+                <div id="comments" class="row">
+                  <div class="col-12  comment-style">
+                    <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span> Lorem, ipsum dolor sit
+                      amet consectetur
+                      adipisicing elit. Neque aliquid pariatur omnis vel
+                      tempora asperiores vero placeat quasi sequi.</p>
+                  </div>
+                  <div class="col-12 d-flex justify-content-between align-items-center">
+                    <div class="d-flex">
+                      <h5 class="me-2">❤️</h5>
+                      <h5>🤮</h5>
+                    </div>
+                    <div><button class="btn btn-danger"><i class="mdi mdi-delete"></i></button></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
       <!-- Modal form button to create new post -->
       <div class="d-flex justify-content-end fixed-bottom">
+        <button id="list-btn" class="btn btn-outline-danger" title="View favorites" data-bs-toggle="offcanvas"
+          data-bs-target="#favoritesOffcanvas">temp off canvas</button>
+
         <button type="button" class="btn btn-outline-success m-4 listings-button" data-bs-toggle="modal"
           data-bs-target="#create-modal">Create new Post <i class="mdi mdi-plus"></i></button>
       </div>

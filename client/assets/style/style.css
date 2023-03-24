@@ -17,3 +17,11 @@
 .post-info-trans {
     translate: 0px -61px;
 }
+
+.circle-style {
+    color: rgb(237, 10, 158);
+}
+
+.comment-style {
+    background-color: rgb(228, 220, 220);
+}
