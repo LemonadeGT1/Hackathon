@@ -7,7 +7,7 @@ import { getFormData } from "../Utils/FormHandler.js";
 
 export class PostsController {
   constructor() {
-    appState.on()
+    appState.on('post')
   }
   async getPosts() {
     try {
