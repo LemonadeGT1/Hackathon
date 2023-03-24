@@ -23,5 +23,7 @@
 }
 
 .comment-style {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     background-color: rgb(234, 234, 234);
 }
