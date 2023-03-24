@@ -9,15 +9,18 @@ function _drawPosts() {
   let template = ''
   posts.forEach(p => template += p.postsTemplate)
   // FIXME add id
-  setHTML('', template)
+  setHTML('posts', template)
 }
 export class PostsController {
   constructor() {
-    // this.getPosts()
+    console.log('PostController')
+    this.getPosts()
     appState.on('posts', _drawPosts)
   }
+
   async getPosts() {
     try {
+      console.log('PostsController getPost')
       await postsService.getPosts()
     } catch (error) {
       console.error(error)
