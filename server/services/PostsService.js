@@ -8,12 +8,14 @@ class PostsService {
     
     
     async getPosts(query) {
-        const posts = await dbContext.Posts.find(query).populate('author', 'name picture').populate('userCount')
+        const posts = await dbContext.Posts.find(query)
+        // .populate('author', 'name picture').populate('userCount')
         return posts
     }
     
     async getPostById(postId) {
-        const foundPost = await dbContext.Posts.findById(postId).populate('author', 'name picture').populate('userCount')
+        const foundPost = await dbContext.Posts.findById(postId)
+        // .populate('author', 'name picture').populate('userCount')
         if (!foundPost) {
             throw new BadRequest("No post found")
         }
