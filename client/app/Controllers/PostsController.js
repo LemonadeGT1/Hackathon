@@ -13,7 +13,7 @@ function _drawPosts() {
 }
 export class PostsController {
   constructor() {
-    this.getPosts()
+    // this.getPosts()
     appState.on('posts', _drawPosts)
   }
   async getPosts() {
