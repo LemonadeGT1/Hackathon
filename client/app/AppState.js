@@ -1,6 +1,7 @@
 import { dev } from './env.js'
 import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
+import { Topic } from "./Models/Topic.js"
 
 class AppState extends EventEmitter {
   user = {}
@@ -10,6 +11,10 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
   socketData = []
+
+  /** @type {import('./Models/Topic').Topic[]} */
+
+  topics = []
 }
 
 export const appState = new Proxy(new AppState(), {
