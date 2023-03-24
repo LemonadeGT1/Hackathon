@@ -8,7 +8,7 @@ export class Post {
     this.body = data.body
   }
 
-  get postsTemplate{
+  get postsTemplate() {
     return `
     `
   }
