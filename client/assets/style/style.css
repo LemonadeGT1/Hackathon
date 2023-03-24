@@ -1,3 +1,19 @@
-/* .icon {
+.icon {
     border-radius: 50%;
-} */
+}
+
+
+
+.post-img {
+    max-height: 20vh;
+
+}
+
+.profile-pic {
+    max-height: 4vh;
+    border-radius: 50%;
+}
+
+.post-info-trans {
+    translate: 0px -61px;
+}
