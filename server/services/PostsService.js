@@ -7,6 +7,7 @@ import { BadRequest, Forbidden } from "../utils/Errors.js"
 class PostsService {
     
     
+    
     async getPosts(query) {
         const posts = await dbContext.Posts.find(query)
         // .populate('author', 'name picture').populate('userCount')
@@ -26,6 +27,17 @@ class PostsService {
         const newPost = await dbContext.Posts.create(postData)
         await newPost.populate('author', 'name picture')
         return newPost
+    }
+
+    async editPost(postEdits, postId) {
+        const originalPost = await this.getPostById(postId)
+
+        originalPost.title = postEdits.title ? postEdits.title : originalPost.title
+        originalPost.body = postEdits.body ? postEdits.body : originalPost.body
+        originalPost.imgUrl = postEdits.imgUrl ? postEdits.imgUrl : originalPost.imgUrl
+
+        await originalPost.save()
+        return originalPost
     }
 
     async deletePost(userId, postId) {

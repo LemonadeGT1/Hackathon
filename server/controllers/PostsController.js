@@ -13,8 +13,10 @@ export class PostsController extends BaseController {
             .get('/:postId', this.getPostById)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createPost)
+            .put('/:postId', this.editPost)
             .delete('/:postId', this.deletePost)
     }
+    
     
     
     async getPosts(req, res, next) {
@@ -44,6 +46,18 @@ export class PostsController extends BaseController {
             postData.authorId = userId
             const newPost = await postsService.createPost(postData)
             res.send(newPost)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async editPost(req, res, next) {
+        try {
+            const postEdits = req.body
+            const postId = req.params.postId
+            const editedPost = await postsService.editPost(postEdits, postId)
+            res.send(editedPost)
+            throw new Error("Method not implemented.");
         } catch (error) {
             next(error)
         }
