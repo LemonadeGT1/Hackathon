@@ -9,6 +9,8 @@ export class Post {
   }
 
   get postsTemplate() {
+
+    // FIXME add template from HTML
     return `
     `
   }
