@@ -19,6 +19,7 @@ class PostsService {
         if (!foundPost) {
             throw new BadRequest("No post found")
         }
+        return foundPost
     }
 
     async createPost(postData) {
