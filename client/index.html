@@ -31,8 +31,8 @@
         <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="mdi mdi-view-headline"></i>
         </button>
-        <ul class="dropdown-menu p-2">
-          <li class="border-bottom" onclick="" title="Can you be a superhero with alive parents">
+        <ul class="dropdown-menu p-2" id="dropdown-topic">
+          <!-- <li class="border-bottom" onclick="" title="Can you be a superhero with alive parents">
             <p>Dead Parents</p>
           </li>
           <li class="border-bottom" onclick=""
@@ -47,7 +47,7 @@
           </li>
           <li class="border-bottom" onclick="" title="Who would willingly be a cop in a supervillian world...">
             <p>Cops</p>
-          </li>
+          </li> -->
         </ul>
       </div>
 
@@ -153,32 +153,57 @@
         </div>
         <div class="offcanvas-body">
           <div class="container-fluid">
-            <section class="row" id="favorites">
-              <div class="col-12">
-                <img class="img-fluid"
-                  src="https://comicvine.gamespot.com/a/uploads/original/0/40/1685100-batman_secret_files_01_page011_c.jpg"
-                  alt="">
-                <div class="d-flex justify-content-between align-items-baseline p-1">
-                  <button class="btn btn-danger" onclick="app.postsController.deletePost('postid')">Delete Post<i
-                      class="mdi mdi-delete"></i></button>
-                  <p>2023-03-14</p>
-                </div>
-                <div id="comments" class="row">
-                  <div class="col-12  comment-style">
-                    <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span> Lorem, ipsum dolor sit
-                      amet consectetur
-                      adipisicing elit. Neque aliquid pariatur omnis vel
-                      tempora asperiores vero placeat quasi sequi.</p>
-                  </div>
-                  <div class="col-12 d-flex justify-content-between align-items-center">
+            <!-- NOTE active-post ID here -->
+            <section class="row" id="active-post">
+              <div col-2>
+                <p>Author Name</p>
+              </div>
+
+              <div class="col-12 d-flex justify-content-center">
+                <div>
+                  <img class="img-fluid"
+                    src="https://comicvine.gamespot.com/a/uploads/original/0/40/1685100-batman_secret_files_01_page011_c.jpg"
+                    alt="">
+                  <p class="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ratione iusto
+                    beatae magni sunt
+                    itaque earum neque fugit natus placeat asperiores modi, quia omnis culpa odio molestias reiciendis
+                    quasi harum labore consequuntur? Numquam, architecto at.</p>
+
+                  <div class="d-flex justify-content-between align-items-baseline p-1">
                     <div class="d-flex">
-                      <h5 class="me-2">❤️</h5>
-                      <h5>🤮</h5>
+                      <h5 class="">0</h5>
+                      <h5 class="me-3 selectable" onclick="">❤️</h5>
+                      <h5 class="">0</h5>
+                      <h5 class="selectable" onclick="">🤮</h5>
                     </div>
-                    <div><button class="btn btn-danger"><i class="mdi mdi-delete"></i></button></div>
+                    <button class="btn btn-outline-danger" onclick="app.postsController.deletePost('postid')">Delete
+                      Post<i class="mdi mdi-delete"></i></button>
                   </div>
                 </div>
               </div>
+
+              <h3 class="my-3">Comments</h3>
+
+              <div id="comments" class="comment-style rounded">
+                <div class="col-12 ">
+                  <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span> Lorem, ipsum dolor sit
+                    amet consectetur
+                    adipisicing elit. Neque aliquid pariatur omnis vel
+                    tempora asperiores vero placeat quasi sequi.</p>
+                </div>
+                <div class="col-12 d-flex justify-content-between align-items-center mb-2">
+                  <div class="d-flex">
+                    <h5 class="">0</h5>
+                    <h5 class="me-3 selectable" onclick="">❤️</h5>
+                    <h5 class="">0</h5>
+                    <h5 class="selectable" onclick="">🤮</h5>
+
+
+                  </div>
+                  <div><button class="btn btn-outline-danger"><i class="mdi mdi-delete"></i></button></div>
+                </div>
+              </div>
+
             </section>
           </div>
         </div>
