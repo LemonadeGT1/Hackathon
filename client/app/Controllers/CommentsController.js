@@ -7,6 +7,17 @@ import { appState } from "../AppState.js";
 
 export class CommentsController {
   constructor() {
+    this.getComments()
     console.log('CommentsController')
+  }
+
+  async getComments() {
+    try {
+      await commentsService.getComments()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+
   }
 }
