@@ -6,7 +6,9 @@ class PostsService {
   async setActivePost(postId) {
     console.log('set Active Post Service', postId)
     const response = await server.get(`api/posts/${postId}`)
-    appState.activePost = response
+    console.log("RESPONSE", response.data);
+    appState.activePost = new Post(response.data)
+    appState.emit('activePost')
     console.log(appState.activePost)
     return response
   }

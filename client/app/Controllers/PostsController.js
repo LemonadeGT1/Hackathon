@@ -11,10 +11,22 @@ function _drawPosts() {
   // FIXME add id
   setHTML('posts', template)
 }
+
+
+function _drawActivePost() {
+  // console.log('are we in draw active?');
+  if (appState.activePost) {
+    setHTML('active-post', appState.activePost.activePostTemplate)
+  }
+}
+
+
+
 export class PostsController {
   constructor() {
     console.log('PostController')
     appState.on('posts', _drawPosts)
+    appState.on('activePost', _drawActivePost)
   }
 
   async getPosts(topicId) {

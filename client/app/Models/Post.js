@@ -42,4 +42,38 @@ export class Post {
         </div>
     `
   }
+
+  get activePostTemplate() {
+    return `
+    <div col-2>
+    <h3>${this.title}</h3>
+  </div>
+
+  <div class="col-12">
+    <div class="d-flex justify-content-center p-3">
+      <img class="img-fluid rounded"
+        src="${this.imgUrl}"
+        alt="${this.title}">
+    </div>
+    <p class="">${this.body}</p>
+    <div class="d-flex justify-content-between align-items-center p-1 border-bottom pb-4">
+      <div class="d-flex">
+        <h5 class="">0</h5>
+        <h5 class="me-3 selectable" onclick="">❤️</h5>
+        <h5 class="">0</h5>
+        <h5 class="selectable" onclick="">🤮</h5>
+      </div>
+      <div>
+        <button class="btn btn-outline-info" onclick="app.postsController.editPost('postid')"
+          data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit
+          Post<i class="mdi mdi-pencil"></i></button>
+
+
+        <button class="btn btn-outline-danger" onclick="app.postsController.deletePost('postid')">Delete
+          Post<i class="mdi mdi-delete"></i></button>
+      </div>
+    </div>
+  </div>
+    `
+  }
 }
