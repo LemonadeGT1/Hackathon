@@ -26,7 +26,7 @@ export class CommentsController {
       window.event.preventDefault()
       // @ts-ignore
       const form = window.event.target
-      const formData = getFormData()
+      const formData = getFormData(form)
       await commentsService.createComment(formData)
       // @ts-ignore
       form.reset()
