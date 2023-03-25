@@ -9,9 +9,9 @@ export class Topic {
 
 
   get dropdownTemplate() {
-    // Copy Once Isaac finishes dropdown
+
     return `
-    <li class="border-bottom d-flex pt-3 ps-3 align-items-center selectable" onclick="app.postsController.getPosts('${this.id}')" title="${this.body}">
+    <li class="border-bottom d-flex pt-3 ps-3 align-items-center selectable" onclick="app.postsController.getPosts('${this.id}')"   title="${this.body}">
       <p id="${this.id}">${this.title}</p>
     </li>
     `

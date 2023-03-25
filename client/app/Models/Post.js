@@ -64,16 +64,18 @@ export class Post {
         <h5 class="selectable" onclick="">🤮</h5>
       </div>
       <div>
-        <button class="btn btn-outline-info" onclick="app.postsController.editPost('postid')"
+        <button class="btn btn-outline-info" onclick="app.postsController.editPost('postId')"
           data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit
           Post<i class="mdi mdi-pencil"></i></button>
 
 
-        <button class="btn btn-outline-danger" onclick="app.postsController.deletePost('postid')">Delete
+        <button class="btn btn-outline-danger" onclick="app.postsController.deletePost()">Delete
           Post<i class="mdi mdi-delete"></i></button>
       </div>
     </div>
   </div>
+
+  
     `
   }
 }

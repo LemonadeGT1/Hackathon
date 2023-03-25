@@ -3,6 +3,7 @@ import { appState } from "../AppState.js";
 import { Pop } from "../Utils/Pop.js";
 import { setHTML } from "../Utils/Writer.js";
 import { getFormData } from "../Utils/FormHandler.js";
+import { topicsService } from "../Services/TopicsService.js";
 
 function _drawPosts() {
   let posts = appState.posts
@@ -34,6 +35,7 @@ export class PostsController {
     try {
       console.log('PostsController getPost')
       await postsService.getPosts(topicId)
+      topicsService.setActiveTopic(topicId)
     } catch (error) {
       console.error(error)
       Pop.error(error)
@@ -47,6 +49,8 @@ export class PostsController {
       // @ts-ignore
       const form = window.event.target
       const formData = getFormData(form)
+      // @ts-ignore
+      formData.topicId = appState.activeTopic?.id
       await postsService.createPost(formData)
       // @ts-ignore
       form.reset()
@@ -59,12 +63,13 @@ export class PostsController {
   setActivePost(postId) {
     console.log('Set Active Post', postId)
     postsService.setActivePost(postId)
+
   }
 
-  async deletePost(postId) {
+  async deletePost() {
     try {
       if (await Pop.confirm('Are you serious? you suck!')) {
-        await postsService.deletePost(postId)
+        await postsService.deletePost()
       }
     } catch (error) {
       console.log(error)

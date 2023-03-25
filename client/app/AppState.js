@@ -18,6 +18,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Topic').Topic[]} */
 
   topics = []
+
   /** @type {import('./Models/Topic').Topic|null} */
   activeTopic = null
 

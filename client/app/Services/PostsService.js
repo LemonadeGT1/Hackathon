@@ -15,6 +15,9 @@ class PostsService {
   }
 
   async createPost(formData) {
+    // @ts-ignore
+    const activeId = appState.activeTopic.id
+    formData.topicId = activeId
     const res = await server.post('api/posts', formData)
     appState.posts.push(new Post(res.data))
     appState.emit('posts')
@@ -25,10 +28,13 @@ class PostsService {
     appState.posts = res.data.map(p => new Post(p))
   }
 
-  async deletePost(postId) {
-    const post = appState.activePost
-    const res = await server.delete('api/posts' + postId)
+  async deletePost() {
+    const postId = appState.activePost?.id
+    // const post = appState.activePost
+    // const res = await server.delete(`api/posts/${postId}`)
+    const res = await server.delete('api/posts/' + postId)
 
+    console.log('deleted post', res.data);
   }
 }
 

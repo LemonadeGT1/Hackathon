@@ -27,4 +27,9 @@ export class TopicsController {
       Pop.error(error)
     }
   }
+
+  // setActivePost(topicId) {
+  //   console.log('Set Active topic', topicId)
+  //   topicsService.setActiveTopic(topicId)
+  // }
 }
