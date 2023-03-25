@@ -11,7 +11,7 @@ export class CommentsController extends BaseController {
       .get('', this.getComments)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createComment)
-      .put('/:commentId', this.getCommentById)
+      .put('/:commentId', this.editComment)
       .delete('/:commentId', this.deleteComment)
   }
 
@@ -41,17 +41,17 @@ export class CommentsController extends BaseController {
   }
 
 
-
-  async getCommentById(req, res, next) {
+  async editComment(req, res, next) {
     try {
+      const commentEdits = req.body
       const commentId = req.params.commentId
-      const comment = await commentsService.getCommentById(commentId)
-      res.send(comment)
-
+      const editedComment = await commentsService.editComment(commentEdits, commentId)
+      res.send(editedComment)
     } catch (error) {
       next(error)
     }
   }
+
 
   async deleteComment(req, res, next) {
     try {
