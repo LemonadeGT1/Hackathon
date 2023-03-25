@@ -54,6 +54,7 @@ export class PostsController {
       await postsService.createPost(formData)
       // @ts-ignore
       form.reset()
+      bootstrap.Modal.getOrCreateInstance('#modal').hide()
     } catch (error) {
       console.log(error)
       Pop.error(error)
