@@ -10,6 +10,13 @@ class CommentsService {
     return comments
   }
 
+  async getCommentByPostId(postId) {
+    const foundComment = await dbContext.Comments.findById(postId)
+    if (!foundComment) {
+      throw new BadRequest("Nothing Here Buddo")
+    }
+    return foundComment
+  }
 
 
   async createComment(commentData) {

@@ -26,6 +26,18 @@ export class CommentsController extends BaseController {
     }
   }
 
+  // async getCommentByPostId(req, res, next) {
+  //   try {
+  //     const postId = req.params.postId
+  //     const comment = await commentsService.getCommentByPostId(postId)
+  //     res.send(comment)
+
+  //   } catch (error) {
+  //     next(error)
+  //   }
+
+  // }
+
 
   async createComment(req, res, next) {
     try {
