@@ -11,11 +11,11 @@ class CommentsService {
   }
 
   async getCommentByPostId(postId) {
-    const foundComment = await dbContext.Comments.findById(postId)
-    if (!foundComment) {
+    const foundComments = await dbContext.Comments.findById(postId)
+    if (!foundComments) {
       throw new BadRequest("Nothing Here Buddo")
     }
-    return foundComment
+    return foundComments
   }
 
 
