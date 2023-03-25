@@ -1,4 +1,4 @@
-
+import { appState } from "../AppState.js"
 
 
 export class Comment {
@@ -6,4 +6,6 @@ export class Comment {
     this.id = data.id
     this.body = data.body
   }
+
+
 }
