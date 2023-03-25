@@ -14,19 +14,21 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     console.log('PostController')
-    this.getPosts()
     appState.on('posts', _drawPosts)
   }
 
-  async getPosts() {
+  async getPosts(topicId) {
     try {
       console.log('PostsController getPost')
-      await postsService.getPosts()
+      await postsService.getPosts(topicId)
     } catch (error) {
       console.error(error)
       Pop.error(error)
     }
   }
+
+
+  // TODO put in an Update function
 
 
 

@@ -9,7 +9,7 @@ function _drawTopics() {
   let topics = appState.topics
   let template = ''
   topics.forEach(topic => template += topic.dropdownTemplate)
-  setHTML('active-topic', template)
+  setHTML('dropdown-topic', template)
 }
 
 export class TopicsController {
