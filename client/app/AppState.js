@@ -32,7 +32,8 @@ class AppState extends EventEmitter {
 
   /** @type {import('./Models/Comment').Comment[]} */
   comments = []
-
+  /** @type {import('./Models/Comment').Comment|null} */
+  activeComments = null
 
 }
 
