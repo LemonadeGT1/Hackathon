@@ -33,7 +33,7 @@ class PostsService {
     // const post = appState.activePost
     // const res = await server.delete(`api/posts/${postId}`)
     const res = await server.delete('api/posts/' + postId)
-
+    appState.emit('posts')
     console.log('deleted post', res.data);
   }
 }
