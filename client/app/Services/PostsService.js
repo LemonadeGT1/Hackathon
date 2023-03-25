@@ -3,6 +3,13 @@ import { Post } from "../Models/Post.js"
 import { appState } from "../AppState.js"
 
 class PostsService {
+  async setActivePost(postId) {
+    console.log('set Active Post Service', postId)
+    const response = await server.get(`api/posts/${postId}`)
+    appState.activePost = response
+    console.log(appState.activePost)
+    return response
+  }
 
   async createPost(formData) {
     const res = await server.post('api/posts', formData)

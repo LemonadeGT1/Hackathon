@@ -45,7 +45,7 @@ export class PostsController {
 
   setActivePost(postId) {
     console.log('Set Active Post', postId)
-
+    postsService.setActivePost(postId)
   }
 
   // TODO put in an Update function
