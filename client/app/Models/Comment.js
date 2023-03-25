@@ -10,12 +10,9 @@ export class Comment {
 
   get commentTemplate() {
     return `
-    <div>
-    <div class="col-12 ">
-      <div class="d-flex">
-        <h5 class="me-2"><img src="" alt="">auth img</h5>
-        <h5> author</h5>
-      </div>
+    <div class="my-3 p-3  comment-style rounded">
+    <div class="col-12">
+
 
       <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span>${this.body}</p>
     </div>

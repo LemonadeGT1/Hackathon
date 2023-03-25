@@ -5,13 +5,16 @@ import { getFormData } from "../Utils/FormHandler.js"
 import { appState } from "../AppState.js";
 
 function _drawActiveComments() {
-  // const activeId = appState.activePost?.id
-  // const activeComments = appState.comments.forEach(c => c.postId == activeId)
-  // appState.activePost.
+  const activeComments = appState.activeComments
+  let template = ''
+  activeComments.forEach(c => template += c.commentTemplate)
+  setHTML('comments', template)
 }
 export class CommentsController {
   constructor() {
     this.getComments()
+    appState.on('activePost', this.getActiveComments)
+    appState.on('activeComments', _drawActiveComments)
     console.log('CommentsController')
   }
 
@@ -33,6 +36,15 @@ export class CommentsController {
     }
   }
 
+  async deleteComment(commentId) {
+    try {
+      await commentsService.deleteComment(commentId)
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
+
   async createComment() {
     try {
       // @ts-ignore
@@ -48,4 +60,6 @@ export class CommentsController {
       Pop.error(error)
     }
   }
+
+
 }

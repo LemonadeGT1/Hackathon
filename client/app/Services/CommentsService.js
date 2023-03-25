@@ -4,6 +4,14 @@ import { server } from "./AxiosService.js";
 
 
 class CommentsService {
+  async deleteComment(commentId) {
+    await server.delete('api/comments/' + commentId)
+    let res = appState.activeComments.filter(i => i.id != commentId)
+    appState.activeComments = res
+    appState.emit('activeComments')
+
+
+  }
 
   async getComments() {
     const res = await server.get(`/api/comments`)
@@ -12,13 +20,19 @@ class CommentsService {
     console.log('comment service', appState.comments)
   }
 
+  getActiveComments() {
+    const activeComments = appState.comments.filter(c => appState.activePost?.id == c.postId)
+    appState.activeComments = activeComments
+  }
+
   async createComment(formData) {
     const activeId = appState.activePost.id
     formData.postId = activeId
     const res = await server.post('api/comments', formData)
 
     appState.comments.push(new Comment(res.data))
-    appState.emit('comments')
+    appState.emit('activePost')
+
   }
 
 }
