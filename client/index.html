@@ -287,42 +287,40 @@
 
 
               <div id="comments" class="comment-style rounded">
+                <div>
+                  <div class="col-12 ">
+                    <div class="d-flex">
+                      <h5 class="me-2"><img src="" alt="">auth img</h5>
+                      <h5> author</h5>
+                    </div>
 
-                <div class="col-12 ">
-                  <div class="d-flex">
-                    <h5 class="me-2"><img src="" alt="">auth img</h5>
-                    <h5> author</h5>
+                    <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span> Lorem, ipsum dolor sit
+                      amet consectetur
+                      adipisicing elit. Neque aliquid pariatur omnis vel
+                      tempora asperiores vero placeat quasi sequi.</p>
                   </div>
+                  <div class="col-12 d-flex justify-content-between align-items-center mb-2">
+                    <div class="d-flex">
+                      <h5 class="">0</h5>
+                      <h5 class="me-3 selectable" onclick="">❤️</h5>
+                      <h5 class="">0</h5>
+                      <h5 class="selectable" onclick="">🤮</h5>
 
-                  <p><span class="circle-style"><i class="mdi mdi-circle-outline"></i></span> Lorem, ipsum dolor sit
-                    amet consectetur
-                    adipisicing elit. Neque aliquid pariatur omnis vel
-                    tempora asperiores vero placeat quasi sequi.</p>
+
+                    </div>
+                    <div>
+                      <button class="btn btn-outline-info listings-button" data-bs-toggle="modal"
+                        data-bs-target="#edit-comment-modal"><i class="mdi mdi-pencil"></i></button>
+                      <button class="btn btn-outline-danger" onclick="app.commentsController.deleteComment()"><i
+                          class="mdi mdi-delete"></i></button>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-12 d-flex justify-content-between align-items-center mb-2">
-                  <div class="d-flex">
-                    <h5 class="">0</h5>
-                    <h5 class="me-3 selectable" onclick="">❤️</h5>
-                    <h5 class="">0</h5>
-                    <h5 class="selectable" onclick="">🤮</h5>
-
-
-                  </div>
-                  <div>
-                    <button class="btn btn-outline-info listings-button" data-bs-toggle="modal"
-                      data-bs-target="#edit-comment-modal"><i class="mdi mdi-pencil"></i></button>
-                    <button class="btn btn-outline-danger" onclick="app.commentsController.deleteComment()"><i
-                        class="mdi mdi-delete"></i></button>
-                  </div>
-                </div>
-
               </div>
-
             </section>
           </div>
         </div>
       </div>
-
 
       <!-- Modal form button to create new post -->
       <div class="d-flex justify-content-end fixed-bottom">
