@@ -18,6 +18,21 @@ export class CommentsController {
       console.error(error)
       Pop.error(error)
     }
+  }
 
+  async createComment() {
+    try {
+      // @ts-ignore
+      window.event.preventDefault()
+      // @ts-ignore
+      const form = window.event.target
+      const formData = getFormData()
+      await commentsService.createComment(formData)
+      // @ts-ignore
+      form.reset()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
   }
 }
