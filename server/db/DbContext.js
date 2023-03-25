@@ -3,6 +3,7 @@ import { AccountSchema } from '../models/Account'
 import { CommentSchema } from "../models/Comment.js";
 import { PostSchema } from '../models/Post.js';
 import { TopicSchema } from '../models/Topic.js';
+import { UserSchema } from '../models/User.js';
 import { ValueSchema } from '../models/Value'
 
 class DbContext {
@@ -11,6 +12,7 @@ class DbContext {
   Topics = mongoose.model('Topic', TopicSchema);
   Posts = mongoose.model('Post', PostSchema);
   Comments = mongoose.model('Comment', CommentSchema);
+  Users = mongoose.model('User', UserSchema);
 }
 
 export const dbContext = new DbContext()
