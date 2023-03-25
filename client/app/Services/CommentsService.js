@@ -13,7 +13,6 @@ class CommentsService {
   }
 
   async createComment(formData) {
-    debugger
     const activeId = appState.activePost.id
     formData.postId = activeId
     const res = await server.post('api/comments', formData)
