@@ -24,6 +24,15 @@ export class CommentsController {
     }
   }
 
+  async getActiveComments() {
+    try {
+      await commentsService.getActiveComments()
+    } catch (error) {
+      console.error(error)
+      Pop.error(error)
+    }
+  }
+
   async createComment() {
     try {
       // @ts-ignore
