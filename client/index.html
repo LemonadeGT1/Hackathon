@@ -83,11 +83,13 @@
       </div>
 
       <!-- Create post form/modal -->
-      <div class="modal fade" id="create-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl text-dark">
           <div class="modal-content">
             <div class="modal-body">
-              <section id="form" class="row">
+              <section id="create-post-form" class="row">
+
                 <form onsubmit="app.postsController.createPost()">
                   <h3>Create new Post</h3>
                   <label for="title">Title</label>
@@ -103,11 +105,97 @@
                     <button type="submit" class="btn btn-success mx-2 mt-2">Create Post</button>
                   </div>
                 </form>
+
               </section>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- edit Post modal -->
+      <div class="modal fade" id="edit-post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl text-dark">
+          <div class="modal-content">
+            <div class="modal-body">
+              <section id="edit-post-form" class="row">
+
+                <form onsubmit="app.postsController.editPost()">
+                  <h3>Update Post</h3>
+                  <label for="title">Title</label>
+                  <input type="text" name="title" class="form-control" id="title" required maxlength="50" minlength="10"
+                    value="">
+                  <label for="body">Content</label>
+                  <input type="text" name="body" class="form-control" id="body" required maxlength="500" minlength="40"
+                    value="">
+                  <label for="imgUrl">imgUrl</label>
+                  <input type="url" name="imgUrl" class="form-control" id="imgUrl" required value="">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-danger mx-2 mt-2"
+                      data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success mx-2 mt-2">Update Post</button>
+                  </div>
+                </form>
+
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--  Create COMMENT Modal -->
+      <div class="modal fade" id="create-comment-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl text-dark">
+          <div class="modal-content">
+            <div class="modal-body">
+              <section id="create-comment-form" class="row">
+
+                <form onsubmit="app.commentsController.createComment()">
+                  <h3>Create Comment</h3>
+                  <label for="body">Comment</label>
+                  <input type="text" name="body" class="form-control" id="body" required maxlength="100" minlength="5"
+                    value="">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-danger mx-2 mt-2"
+                      data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success mx-2 mt-2">Create Comment</button>
+                  </div>
+                </form>
+
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--  edit COMMENT Modal -->
+      <div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl text-dark">
+          <div class="modal-content">
+            <div class="modal-body">
+              <section id="edit-comment-form" class="row">
+
+                <form onsubmit="app.commentsController.editComment()">
+                  <h3>Update Comment</h3>
+                  <label for="body">Comment</label>
+                  <input type="text" name="body" class="form-control" id="body" required maxlength="100" minlength="5"
+                    value="">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-danger mx-2 mt-2"
+                      data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success mx-2 mt-2">Update Comment</button>
+                  </div>
+                </form>
+
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <section class="col-10" id="posts">
         <!-- <div class=" card p-3 elevation-4">
@@ -161,7 +249,7 @@
 
               <div class="col-12">
                 <div class="d-flex justify-content-center p-3">
-                  <img class="img-fluid"
+                  <img class="img-fluid rounded"
                     src="https://comicvine.gamespot.com/a/uploads/original/0/40/1685100-batman_secret_files_01_page011_c.jpg"
                     alt="">
                 </div>
@@ -169,7 +257,6 @@
                   beatae magni sunt
                   itaque earum neque fugit natus placeat asperiores modi, quia omnis culpa odio molestias reiciendis
                   quasi harum labore consequuntur? Numquam, architecto at.</p>
-
                 <div class="d-flex justify-content-between align-items-center p-1 border-bottom pb-4">
                   <div class="d-flex">
                     <h5 class="">0</h5>
@@ -177,15 +264,26 @@
                     <h5 class="">0</h5>
                     <h5 class="selectable" onclick="">🤮</h5>
                   </div>
-                  <button class="btn btn-outline-danger" onclick="app.postsController.deletePost('postid')">Delete
-                    Post<i class="mdi mdi-delete"></i></button>
-                </div>
+                  <div>
+                    <button class="btn btn-outline-info" onclick="app.postsController.editPost('postid')"
+                      data-bs-toggle="modal" data-bs-target="#edit-post-modal">Edit
+                      Post<i class="mdi mdi-pencil"></i></button>
 
+
+                    <button class="btn btn-outline-danger" onclick="app.postsController.deletePost('postid')">Delete
+                      Post<i class="mdi mdi-delete"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between my-3">
+                <h3 class="">Comments</h3>
+                <button class="btn btn-outline-info listings-button" data-bs-toggle="modal"
+                  data-bs-target="#create-comment-modal">Add comment</button>
               </div>
 
-              <h3 class="my-3">Comments</h3>
 
               <div id="comments" class="comment-style rounded">
+
                 <div class="col-12 ">
                   <div class="d-flex">
                     <h5 class="me-2"><img src="" alt="">auth img</h5>
@@ -206,8 +304,14 @@
 
 
                   </div>
-                  <div><button class="btn btn-outline-danger"><i class="mdi mdi-delete"></i></button></div>
+                  <div>
+                    <button class="btn btn-outline-info listings-button" data-bs-toggle="modal"
+                      data-bs-target="#edit-comment-modal"><i class="mdi mdi-pencil"></i></button>
+                    <button class="btn btn-outline-danger" onclick="app.commentsController.deleteComment()"><i
+                        class="mdi mdi-delete"></i></button>
+                  </div>
                 </div>
+
               </div>
 
             </section>
@@ -215,13 +319,14 @@
         </div>
       </div>
 
+
       <!-- Modal form button to create new post -->
       <div class="d-flex justify-content-end fixed-bottom">
         <button id="list-btn" class="btn btn-outline-danger" title="View favorites" data-bs-toggle="offcanvas"
           data-bs-target="#favoritesOffcanvas">temp off canvas</button>
 
         <button type="button" class="btn btn-outline-success m-4 listings-button" data-bs-toggle="modal"
-          data-bs-target="#create-modal">Create new Post <i class="mdi mdi-plus"></i></button>
+          data-bs-target="#create-post-modal">Create new Post <i class="mdi mdi-plus"></i></button>
       </div>
 
   </main>
