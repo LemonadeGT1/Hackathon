@@ -5,9 +5,9 @@ import { getFormData } from "../Utils/FormHandler.js"
 import { appState } from "../AppState.js";
 
 function _drawActiveComments() {
-  const activeId = appState.activePost?.id
-  const activeComments = appState.comments.forEach(c => c.postId == activeId)
-  appState.activePost.
+  // const activeId = appState.activePost?.id
+  // const activeComments = appState.comments.forEach(c => c.postId == activeId)
+  // appState.activePost.
 }
 export class CommentsController {
   constructor() {
