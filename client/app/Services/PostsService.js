@@ -3,6 +3,7 @@ import { Post } from "../Models/Post.js"
 import { appState } from "../AppState.js"
 
 class PostsService {
+
   async setActivePost(postId) {
     console.log('set Active Post Service', postId)
     const response = await server.get(`api/posts/${postId}`)
@@ -24,6 +25,11 @@ class PostsService {
     appState.posts = res.data.map(p => new Post(p))
   }
 
+  async deletePost(postId) {
+    const post = appState.activePost
+    const res = await server.delete('api/posts' + postId)
+
+  }
 }
 
 export const postsService = new PostsService()

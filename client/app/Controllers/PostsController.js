@@ -22,6 +22,7 @@ function _drawActivePost() {
 
 
 
+
 export class PostsController {
   constructor() {
     console.log('PostController')
@@ -58,6 +59,17 @@ export class PostsController {
   setActivePost(postId) {
     console.log('Set Active Post', postId)
     postsService.setActivePost(postId)
+  }
+
+  async deletePost(postId) {
+    try {
+      if (await Pop.confirm('Are you serious? you suck!')) {
+        await postsService.deletePost(postId)
+      }
+    } catch (error) {
+      console.log(error)
+      Pop.error(error)
+    }
   }
 
   // TODO put in an Update function
