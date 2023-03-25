@@ -69,7 +69,7 @@ export class Post {
           Post<i class="mdi mdi-pencil"></i></button>
 
 
-        <button class="btn btn-outline-danger" onclick="app.postsController.deletePost()">Delete
+        <button class="btn btn-outline-danger" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" onclick="app.postsController.deletePost()">Delete
           Post<i class="mdi mdi-delete"></i></button>
       </div>
     </div>
