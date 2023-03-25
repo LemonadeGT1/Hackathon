@@ -7,6 +7,6 @@ import { appState } from "../AppState.js";
 
 export class CommentsController {
   constructor() {
-
+    console.log('CommentsController')
   }
 }

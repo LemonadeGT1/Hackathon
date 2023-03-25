@@ -6,6 +6,7 @@ export class Post {
     this.title = data.title
     this.imgUrl = data.imgUrl
     this.body = data.body
+    this.createdAt = new Date(data.createdAt)
   }
 
   get postsTemplate() {
@@ -17,7 +18,7 @@ export class Post {
                 src="${this.imgUrl}"
                 alt="bat dead parent">
             </div>
-            <div class="col-10 d-flex flex-column justify-content-between selectable ps-4" onclick="">
+            <div class="col-10 d-flex flex-column justify-content-between selectable ps-4" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" onclick="app.postsController.setActivePost('${this.id}')">
               <div>
                 <h4>${this.title}</h4>
                 <p>${this.body}</p>
@@ -28,7 +29,7 @@ export class Post {
                     <img class="profile-pic"
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvBR5bnG1AfHRJ8kX79I-1Z1EfNvxKyZqiM27HASBL&s"
                       alt="random dude">
-                    Username: [[Id: ${this.id}]]
+                    Username: [[Id: ${this.id}]] [[Created: ${(this.createdAt).toLocaleDateString()}]]
                   </p>
                 </div>
                 <div class="d-flex align-items-center">

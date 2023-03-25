@@ -27,11 +27,6 @@ export class PostsController {
     }
   }
 
-
-  // TODO put in an Update function
-
-
-
   async createPost() {
     try {
       // @ts-ignore
@@ -47,5 +42,15 @@ export class PostsController {
       Pop.error(error)
     }
   }
+
+  setActivePost(postId) {
+    console.log('Set Active Post', postId)
+
+  }
+
+  // TODO put in an Update function
+
+
+
 
 }
